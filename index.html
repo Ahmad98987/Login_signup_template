@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <meta name="Discription" content="This is login form etc">
+    <meta name="keyword" content="html, css, form, login form">
+    <meta name="Author" content="Ahmad Faraz">
+    <!-- Custom CSS file link -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <section id="form_section">
+        <div id="login_form">
+            <form id="LoginForm">
+                <div id="logo">AF</div>
+                <small>New Here? <a href="sign_up.html">Sign up</a></small>
+                <br>
+                <input type="text" name="username" id="username" placeholder="Username" autocomplete="off">
+                <br>
+                <input type="password" name="password" id="password" placeholder="Password" autocomplete="off">
+                <br>
+                <input type="submit" id="login" value="Login">
+                <br>
+                <div id="error_wrap"></div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Js Code -->
+    <script>
+        alert("username: lablo22 & Password : 123");
+        document.getElementById("LoginForm").addEventListener("submit", function(e){
+            e.preventDefault();
+            
+            var user = "lablo22";
+            var pass = 123;
+
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+
+            if(username == "" || password == "")
+            {
+                errorMsg = "<div id='error'>Both fields required !!</div>";
+                document.getElementById("error_wrap").innerHTML = errorMsg;
+            }
+            else
+            {
+                if(username == user && password == pass)
+                {
+                    document.getElementById('LoginForm').reset();
+                    document.getElementById("error_wrap").innerHTML = "";
+                    window.location.href = "home.html";
+                }
+                else
+                {
+                    errorMsg = "<div id='error'>Please enter vaild details !!</div>";
+                    document.getElementById("error_wrap").innerHTML = errorMsg;
+                }
+            }
+
+        });
+    </script>
+
+</body>
+</html>

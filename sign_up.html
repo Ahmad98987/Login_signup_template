@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign up Page</title>
+    <meta name="Discription" content="This is login form etc">
+    <meta name="keyword" content="html, css, form, login form">
+    <meta name="Author" content="Ahmad Faraz">
+    <!-- Custom CSS file link -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <section id="form_section">
+        <div id="login_form">
+            <form id="SignUp_Form">
+                <div id="logo">AF</div>
+                <small>Already sign up? <a href="index.html">Login</a></small>
+                <br>
+                <input type="text" name="username" id="username" placeholder="Username" autocomplete="off">
+                <br>
+                <input type="email" name="email" id="email" placeholder="Email Address" autocomplete="off">
+                <br>
+                <input type="password" name="password" id="password" placeholder="Password" autocomplete="off">
+                <br>
+                <div id="gen_box">
+                    <small>
+                        Gender : <input type="radio" id="gender" name="gender" value="Male">&nbsp;Male
+                        &nbsp;&nbsp;
+                        <input type="radio" id="gender" name="gender" value="Female">&nbsp;Female
+                    </small>
+                </div>
+                <br>
+                <input type="submit" id="login" value="Sign up">
+                <br>
+                <div id="error_wrap"></div>
+            </form>
+        </div>
+    </section>
+
+    <!-- JS Code -->
+    <script>
+        document.getElementById("SignUp_Form").addEventListener("submit", function(e){
+            e.preventDefault();
+            
+            var username = document.getElementById("username").value;
+            var email    = document.getElementById("email").value;
+            var password = document.getElementById("password").value;
+            var gender = document.forms["SignUp_Form"]["gender"];
+
+            if(username == "" || email == "" || password == "")
+            {
+                errorMsg = "<div id='error'>All fields required !!</div>";
+                document.getElementById("error_wrap").innerHTML = errorMsg;
+            }
+            else
+            {
+                if(gender[0].checked==false && gender[1].checked==false)
+                {
+                    errorMsg = "<div id='error'>All fields required !!</div>";
+                    document.getElementById("error_wrap").innerHTML = errorMsg;
+                }
+                else
+                {
+                    document.getElementById('SignUp_Form').reset();
+                    document.getElementById("error_wrap").innerHTML = "";
+                    window.location.href = "home.html";
+                }
+            }
+        });
+    </script>
+
+</body>
+</html>
